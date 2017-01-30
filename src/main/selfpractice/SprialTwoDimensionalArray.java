@@ -15,6 +15,7 @@ public class SprialTwoDimensionalArray {
         if(input.length > 2 && input[0].length > 2){
             iterateThroghArray(createNewArray(input));
         }
+        int square = (int) Math.pow(2, 3);
 
 
     }
