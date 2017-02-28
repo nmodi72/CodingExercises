@@ -1,12 +1,22 @@
 package main.selfpractice;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * Created by nirmodi on 12/2/16.
  */
 public class SprialTwoDimensionalArray {
 
 
-    public void iterateThroghArray(String[][] input) {
+    public static void iterateThroghArray(String[][] input) {
+        if(input.length != input[0].length){
+            throw new RuntimeException("Given array is not M * M");
+        }
+
 //        validateArray(input);
         iterateForwardDirection(input[0]);
         iterateDownwardDirection(input);
@@ -53,5 +63,16 @@ public class SprialTwoDimensionalArray {
         for (int i = array.length - 1; i > 0; i--) {
             System.out.print(array[i][0] + " ");
         }
+    }
+
+    public static void main(String[] args){
+        String[][] arr = { {"1", "2", "3"},
+                            {"1", "2", "3"},
+                            {"1", "2", "3"}};
+//        iterateThroghArray(arr);
+        int[] a = {};
+
+        Set d = new TreeSet<>();
+
     }
 }
