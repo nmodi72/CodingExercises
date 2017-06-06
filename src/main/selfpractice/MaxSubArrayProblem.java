@@ -1,5 +1,6 @@
 package main.selfpractice;
 
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -120,6 +121,5 @@ public class MaxSubArrayProblem {
         } else {
             return convertToBase7(num / 7) + (num % 7);
         }
-
     }
 }
