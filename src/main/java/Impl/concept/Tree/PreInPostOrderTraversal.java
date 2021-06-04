@@ -1,6 +1,10 @@
 package main.java.Impl.concept.Tree;
 
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 import main.java.model.TreeNode;
@@ -43,7 +47,7 @@ public class PreInPostOrderTraversal {
     /**
      * Below are Pre, In and Post Order traversals without recursion(iterative approach)
      */
-    public void preOrderWithoutRecursion(TreeNode tree) {
+    public static void preOrderWithoutRecursion(TreeNode tree) {
         if (tree == null) {
             return;
         }
@@ -61,7 +65,7 @@ public class PreInPostOrderTraversal {
         }
     }
 
-    public void inOrderWithoutRecursion(TreeNode tree) {
+    public static void inOrderWithoutRecursion(TreeNode tree) {
         if (tree == null) {
             return;
         }
@@ -78,7 +82,7 @@ public class PreInPostOrderTraversal {
         }
     }
 
-    public void postOrderWithoutRecursion(TreeNode tree) {
+    public static void postOrderWithoutRecursion(TreeNode tree) {
         if (tree == null) {
             return;
         }
@@ -96,6 +100,21 @@ public class PreInPostOrderTraversal {
         }
     }
 
+    public static List<Integer> postOrderWithoutRecursionNewOne(TreeNode root) {
+        LinkedList<Integer> output = new LinkedList();
+        Deque<TreeNode> stack = new ArrayDeque();
+
+        if (root == null) return output;
+
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+            output.addFirst(root.val);
+            if (root.left != null) stack.push(root.left);
+            if (root.right != null) stack.push(root.right);
+        }
+        return output;
+    }
     /**
      * Below are Pre, In and Post Order traversals with Morris Traversal
      */

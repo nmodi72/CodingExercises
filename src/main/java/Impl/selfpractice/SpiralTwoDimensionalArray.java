@@ -6,7 +6,7 @@ import java.util.TreeSet;
 /**
  *
  */
-public class SprialTwoDimensionalArray {
+public class SpiralTwoDimensionalArray {
 
     public static void iterateThroghArray(String[][] input) {
         int left = 0;
@@ -16,20 +16,18 @@ public class SprialTwoDimensionalArray {
         while(upper <= lower && left <= right) {
             iterateForwardDirection(input[upper], left, right);
             upper++;
+            if(upper > lower) break;
             iterateDownwardDirection(input, upper, lower, right);
             right--;
+            if(left > right) break;
+
             iterateBackwardDirection(input[lower], left, right);
             lower--;
+            if(upper > lower) break;
+
             iterateUpwardDirection(input, upper, lower, left);
             left++;
         }
-    }
-
-    public static void validateArray(String[][] array){
-        if(array == null || array.length == 0 ) {
-            System.exit(0);
-        }
-
     }
 
     public static void iterateForwardDirection(String[] array, int left, int right){
@@ -62,8 +60,8 @@ public class SprialTwoDimensionalArray {
                             {"10", "11", "4"},
                             {"9", "12", "5"},
                             {"8", "7", "6"}};
-        String[][] arr1 = { {"1"}};
-        iterateThroghArray(arr1);
+        String[][] arr1 = { {"1", "2"}};
+        iterateThroghArray(arr);
         int[] a = {};
 
         Set d = new TreeSet<>();
